@@ -1,0 +1,48 @@
+<div class="col-md-12">
+    <ngb-tabset type="pills" (tabChange)="pageChanged(1)">
+        <ngb-tab>
+            <ng-template ngbTabTitle ><div (click)="switchStatus('')"><b >Semua</b> </div></ng-template>
+        </ngb-tab>
+        <ngb-tab  *ngFor="let list of Data2" id="tab{{list._id}}" >
+            <ng-template ngbTabTitle ><div (click)="switchStatus(list._id)"><b >{{list.nama}}</b> {{list.ticketcounts}}</div></ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+
+        <nav class=" navbar navbar-light bg-light" >
+                <form class="form-inline searchBar">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+        </nav>
+
+        <table class="table table-stripped table-bordered table-hover table-sm table-responsive-md">
+            <caption>List Tiket </caption>
+          <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="theadcbox"><input type="checkbox"  [(ngModel)]="MasterSelected" (change)="checkUncheckAll()" /></th>
+                <th scope="col">kode</th>
+                <th scope="col">Subjek</th>
+                <th scope="col">Aktifitas Terakhir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of TicketsList.data | paginate: PaginationConfig" >
+              <th scope="row">
+               <input type="checkbox" [(ngModel)]="list.isSelected" > 
+              </th>
+              <td><b><a [routerLink]="['/memberarea/ticket/check',list.kode]">{{list.kode}}</a></b></td>
+              <td><b>{{list.judul}}</b></td>
+              <td>{{list.createdAt | date : "MMM d, y, h:mm:ss " }}</td>
+            </tr>
+           
+          </tbody>
+        </table>
+
+        
+          <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+         
+        
+
+
+</div>

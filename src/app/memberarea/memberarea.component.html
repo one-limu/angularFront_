@@ -1,0 +1,51 @@
+<!--Created by- https://bootsnipp.com/ishwarkatwe-->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<div class="viewport">
+    <div class="nav-side-menu">
+        <div class="brand">STMIK BANDUNG</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+      
+            <div class="menu-list">
+      
+                <ul id="menu-content" class="menu-content">
+                    <li routerLinkActive="active">
+                      <a href="#" routerLink="ticket/create"  >
+                      <i class="fa fa-plus"></i> Buat Tiket
+                      </a>
+                    
+                    </li>
+    
+                    <li  routerLinkActive="active">
+                      <a href="#" routerLink="ticket/list" >
+                        <i class="fas fa-th-list"></i> List Tiket 
+                      </a>
+                    </li>
+                   
+                     <li>
+                      <a href="#">
+                      <i class="fa fa-user fa-lg"></i> Profil
+                      </a>
+                      </li>
+    
+                   
+                </ul>
+         </div>
+    </div>
+
+    <div class="content" >
+            <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Memberarea</a></li>
+                      <li class="breadcrumb-item"><a href="#">Library</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+            </nav>
+                 
+            <router-outlet></router-outlet>
+    </div>
+
+    
+</div>
+

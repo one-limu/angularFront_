@@ -1,0 +1,80 @@
+<div class="col-md-12 container">
+    <div class="row">
+        <div class="col-md-8">
+               <div class="card text-white bg-dark mb-3">
+                   <div class="card-header font-weight-bold">
+                       Buat Tiket Baru
+                   </div>
+                   <div class="card-body">
+                        <form  [formGroup]="createForms" (ngSubmit)="submitForm1()" >
+                                <div class="form-group row" [hidden]="1" >
+                                        <label for="inputPembuat" class="col-sm-2 col-form-label col-form-label-sm font-weight-bold">Pembuat</label>
+                                        <div class="col-sm-10">
+                                          <input formControlName="id_pembuat" type="text"   class="form-control form-control-sm" id="inputPembuat" placeholder="Pembuat">
+                                        </div>
+                                </div>
+                                
+                                <div  class="form-group row">
+                                        <label for="inputJudul" class="col-sm-2 col-form-label col-form-label-sm font-weight-bold">Judul</label>
+                                        <div class="col-sm-10">
+                                            <input formControlName="judul" type="text" class="form-control form-control-sm" id="inputJudul" placeholder="Judul">
+                                        </div>
+                                    </div>
+        
+                                    <div class="form-group row">
+                                        <label for="inputSelectPrioritas" class="col-sm-2 col-form-label col-form-label-sm font-weight-bold">Prioritas</label>
+                                        <div class="col-sm-10">
+                                                <select formControlName="prioritas" class="form-control form-control-sm" id="inputSelectPrioritas">
+                                                        <option *ngFor="let list of Data3" value="{{list._id}}">{{list.nama}}</option>
+
+                                                        </select>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="inputSelectTopik" class="col-sm-2 col-form-label col-form-label-sm font-weight-bold">Topik</label>
+                                        <div class="col-sm-10">
+                                                <select formControlName="kategori" class="form-control form-control-sm" id="inputSelectTopik">
+                                                        <option *ngFor="let list of Data2" value="{{list._id}}">{{list.nama}}</option>
+                                                        </select>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="inputSelectIsi" class="col-sm-2 col-form-label col-form-label-sm font-weight-bold">Pesan</label>
+                                        <div class="col-sm-10">
+                                                <textarea formControlName="isi" class="form-control form-control-sm" id="inputSelectIsi">
+                                                        
+                                                </textarea>
+                                        </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    
+                                    <div class="col-md-4" ></div>
+                                <div class="col-md-2 offset-md-6">
+                            <button type="submit" class="btn btn-primary">Submit</button></div>
+                                </div>
+        
+                                
+                        </form>
+                   </div>
+               </div>
+        </div>
+        <div class="col-md-4" [hidden]="1">
+                <div class="card text-black mb-3">
+                        <div class="card-header font-weight-bold">
+                            Buat Tiket Baru
+                        </div>
+                        <div class="card-body">
+                                <ul class="list-group text-black">
+                                        <li class="list-group-item d-flex  justify-content-between align-items-center">
+                                          Cras justo odio
+                                          <span class="badge badge-primary badge-pill">14</span>
+                                        </li>
+                                      
+                                      </ul>
+                        </div>
+                </div>
+               
+        </div>
+        </div>
+</div>

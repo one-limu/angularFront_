@@ -1,0 +1,131 @@
+<div class="col-md-12">
+    <div class="col-md-12 info-title">
+            <div class="col-md-9">
+                    <h3> <i class="fa fa-user"></i> {{Data1.judul}} <small>{{Data1.kode}}</small></h3> 
+             </div>
+             <div class="col-md-3" [hidden]="1">
+                   
+                            <div class="col">
+                              <div ngbDropdown class="d-inline-block">
+                                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle  (click)="kk()">Ganti Status</button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                  <button ngbDropdownItem *ngFor="let list of Data2" (click)="changeStatus(list._id)" >{{list.nama}}</button>
+                                </div>
+                              </div>
+                            </div>
+                            
+             </div>
+    </div>
+    <div class="col-md-12 info-container">
+            <div class="col-md-6">
+                    <table class="table table-stripped  table-hover table-sm table-responsive-md">
+                            <tbody>
+                              <tr>
+                                  <th class="info-header">Status</th>
+                                  <td>{{Data1.status.nama}}</td>
+                              </tr>
+                            
+                            <tr>
+                                <th class="info-header">Topik</th>
+                                <td>{{Data1.kategori.nama}}</td>
+                            </tr>
+                              <tr>
+                                  <th class="info-header">Tanggal diBuat</th>
+                                  <td>{{Data1.createdAt | date : "MMM d, y, h:mm:ss" }}</td>
+                              </tr>
+                            </tbody>
+                      </table>
+            </div>
+           
+            <div class="col-md-6">
+                    <table class="table table-stripped table-hover table-sm table-responsive-md">
+                            <tbody>
+                                    <tr>
+                                            <th class="info-header">Prioritas</th>
+                                            <td>{{Data1.prioritas.nama }}</td>
+                                        </tr>
+                                <tr>
+                                    
+                                    <th class="info-header">Perespon  Terakhir</th>
+                                    <td>{{Data1.balasan[Data1.balasan.length -1].id_pembuat.username }}</td>
+                                </tr>
+                              
+                              <tr>
+                                  <th class="info-header">Respon Terakhir</th>
+                                  <td>{{Data1.balasan[Data1.balasan.length -1].createdAt | date : "MMM d, y, h:mm:ss" }}</td>
+                              </tr>
+                            </tbody>
+                      </table>
+            </div>
+    </div>
+
+    <div class="row reply-list-box">
+            <div class="col-12">
+                <div class="card card-white post">
+                    <div class="post-heading">
+                        <div class="float-left image">
+                            <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                        </div>
+                        <div class="float-left meta">
+                            <div class="title h5">
+                                <a href="#"><b>{{Data1.id_pembuat.username}}</b></a>
+                                Memulai Tiket
+                            </div>
+                            <h6 class="text-muted time">{{Data1.createdAt | date : "MMM d, y, h:mm:ss " }}</h6>
+                        </div>
+                    </div> 
+                    <div class="post-description"> 
+                        <p>{{Data1.isi}}</p>
+    
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="col-md-12">
+            <div class="row reply-list-box" *ngFor="let list of Data1.balasan">
+                    <div class="col-12">
+                        <div class="card card-white post">
+                            <div class="post-heading">
+                                <div class="float-left image">
+                                    <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                                </div>
+                                <div class="float-left meta">
+                                    <div class="title h5">
+                                        <a href="#"><b>{{list.id_pembuat.username}}</b></a>
+                                        menulis
+                                    </div>
+                                    <h6 class="text-muted time">{{list.createdAt | date : "MMM d, y, h:mm:ss " }}</h6>
+                                </div>
+                            </div> 
+                            <div class="post-description"> 
+                                <p>{{list.isi}}</p>
+            
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+    </div>
+
+    <div class="container pb-cmnt-container">
+        <form [formGroup]="komenForms" (ngSubmit)="submitForm1()">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        <div class="card-block">
+                            <textarea formControlName="isi"   placeholder="Write your comment here!"   class="pb-cmnt-textarea"></textarea>
+                            
+                                <div class="btn-group">
+                                    <button class="btn" type="button"><span class="fa fa-picture-o fa-lg"></span></button>
+                                </div>
+                                <button class="btn btn-primary float-xs-right" type="submit">Reply</button>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+
+</div>
