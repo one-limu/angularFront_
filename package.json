@@ -37,7 +37,7 @@
     "jest-each": "^24.9.0",
     "material-design-iconic-font": "^2.2.0",
     "ngx-pagination": "^5.0.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "rxjs": "^6.5.2",
     "stylus-loader": "^3.0.2",
     "zone.js": "^0.9.1"
